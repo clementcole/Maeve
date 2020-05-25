@@ -1,0 +1,62 @@
+import discord
+from discord.ext import commands
+import pyyoutube
+import requests
+import os
+
+#from pyyoutube import Api
+youtubeAPIToken = 'AIzaSyCoOXOzKbQbpLmF3YJCgAsqJUjQCPwfYa4'
+bounce_check = commands.Bot(command_prefix = '.')
+youtube_api = pyyoutube.Api(api_key='AIzaSyCoOXOzKbQbpLmF3YJCgAsqJUjQCPwfYa4')
+youtube_channel_IDs = {
+    '0' : {'channel id' : 'UCv002AUCZaPNwiADqwchijg', 'channel name' : 'the intercept', 'channel url': r'https://www.youtube.com/channel/UCv002AUCZaPNwiADqwchijg/UCv002AUCZaPNwiADqwchijg'},
+    #'1': {}
+}
+
+@bounce_check.command()
+async def load(ctx, extension):
+    bounce_check.load_extension(f'cogs.{extension}')
+
+@bounce_check.command()
+async def unload(ctx, extension):
+    bounce_check.unload_extension(f'cogs.{extension}')
+
+
+def process_csv_attachment(attachment_content):
+    attachment_content = attachment_content.split(b'\n')
+    headers = get_csv_headers(attachment_content[0])
+    print (headers)
+
+def get_csv_headers(attachment_content_0):
+    columns = attachment_content_0.split(b',')
+    return (columns)
+    #pass
+
+def getchannelById():
+    pass
+
+def getplayListById():
+    pass
+
+def getvideosById():
+    pass
+
+
+
+def getyoutubeItems():
+    playlist_by_channel_ID = youtube_api.get_playlists(channel_id = 'UCv002AUCZaPNwiADqwchijg', count=None)
+    #print(playlist_by_channel_ID.items)
+    #for item in playlist_by_channel_ID.items:
+    #    print(item.to_dict())
+    print(playlist_by_channel_ID.items[0].to_dict())
+
+
+for filename in os.listdir('./cogs'):
+    if filename.endswith('.py'):
+        bounce_check.load_extension(f'cogs.{filename[:-3]}')
+
+
+
+#getyoutubeItems()
+bounce_check.run('NzExMDQzNjM4NzkyMDI4MTYz.Xr9SJQ.kebFlMeSyPOvBuxdohSWTp56LZc')
+
