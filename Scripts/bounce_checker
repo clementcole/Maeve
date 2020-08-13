@@ -5,11 +5,11 @@ import requests
 import os
 
 #from pyyoutube import Api
-youtubeAPIToken = 'AIzaSyCoOXOzKbQbpLmF3YJCgAsqJUjQCPwfYa4'
+youtubeAPIToken = ''
 bounce_check = commands.Bot(command_prefix = '.')
-youtube_api = pyyoutube.Api(api_key='AIzaSyCoOXOzKbQbpLmF3YJCgAsqJUjQCPwfYa4')
+youtube_api = pyyoutube.Api(api_key='')
 youtube_channel_IDs = {
-    '0' : {'channel id' : 'UCv002AUCZaPNwiADqwchijg', 'channel name' : 'the intercept', 'channel url': r'https://www.youtube.com/channel/UCv002AUCZaPNwiADqwchijg/UCv002AUCZaPNwiADqwchijg'},
+    '0' : {'channel id' : '', 'channel name' : 'the intercept', 'channel url': r'https://www.youtube.com/channel/UCv002AUCZaPNwiADqwchijg/UCv002AUCZaPNwiADqwchijg'},
     #'1': {}
 }
 
